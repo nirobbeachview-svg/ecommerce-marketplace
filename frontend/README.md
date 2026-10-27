@@ -1,84 +1,38 @@
-# E-Commerce Frontend
+# CONTRA BY NIRO® — Storefront
 
-React-based frontend for the e-commerce marketplace.
+A responsive luxury multi-brand storefront for watches, eyewear, leather goods, bags, shoes, clothing, fragrance and everyday objects.
 
-## Technologies
+## Stack
+- React + Vite
+- Framer Motion for restrained motion and transitions
+- Lucide icons
+- Responsive custom CSS with monochrome glass UI
+- Vercel-ready static frontend
 
-- **React 18** - UI library
-- **Redux Toolkit** - State management
-- **Tailwind CSS** - Styling
-- **Axios** - HTTP client
-- **React Router v6** - Navigation
-- **React Query** - Server state management
-- **Formik & Yup** - Form handling and validation
-
-## Setup
-
-### Prerequisites
-- Node.js 14+
-- npm or yarn
-
-### Installation
-
+## Run locally
 ```bash
 cd frontend
 npm install
+npm run dev
 ```
 
-### Environment Variables
-
-Create a `.env` file:
-
-```
-REACT_APP_API_URL=http://localhost:5000
-REACT_APP_STRIPE_PUBLIC_KEY=your_stripe_public_key
-```
-
-### Running the App
-
-```bash
-npm start
-```
-
-The app will open at `http://localhost:3000`
-
-## Project Structure
-
-```
-src/
-├── components/          # Reusable components
-├── pages/              # Page components
-├── store/              # Redux store configuration
-├── slices/             # Redux slices
-├── services/           # API services
-├── hooks/              # Custom hooks
-├── utils/              # Utility functions
-├── styles/             # CSS/Tailwind styles
-└── App.jsx
-```
-
-## Available Scripts
-
-- `npm start` - Start development server
-- `npm run build` - Build for production
-- `npm test` - Run tests
-- `npm run eject` - Eject from create-react-app (irreversible)
-
-## Features
-
-- Product listing with filters and search
-- Shopping cart management
-- User authentication
-- Order management
-- User profile and preferences
-- Product reviews and ratings
-- Admin dashboard (product management)
-- Responsive design
-
-## Building for Production
-
+## Production build
 ```bash
 npm run build
+npm run preview
 ```
 
-This creates an optimized production build in the `build/` directory.
+## Current storefront features
+- Responsive editorial homepage with category discovery
+- Product catalog with search, category selection, price filter, offer filter and sorting
+- Quick-view product modal, wishlist, compare selection and cart quantity controls
+- Shopping bag drawer with complimentary-delivery progress
+- Checkout preview with Bangladesh-oriented delivery fields and payment-method selection
+- Currency display toggle (BDT/USD), English/Bangla label toggle, dark/light theme
+- Newsletter form interaction, mobile navigation and mobile bottom bar
+- Accessibility focus styles and reduced-motion/transparency preferences
+
+## Production integrations still required
+The current build uses a demonstration product catalogue and client-side state. Connect a database and API for persistent inventory, customers, orders and reviews; configure authentication; connect a real payment gateway (bKash/Nagad/cards), shipping provider, email/newsletter service, analytics and customer support before taking live orders. Checkout currently previews an order and does not charge or submit a real order.
+
+Product photos use externally hosted Unsplash image URLs. Replace with licensed brand/product photography before commercial launch.
