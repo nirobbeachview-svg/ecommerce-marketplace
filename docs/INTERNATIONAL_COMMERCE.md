@@ -5,7 +5,8 @@
 - Region-based currency display and payment-method choices.
 - International checkout fields: recipient, phone, email, street address, city/region and postal code.
 - Bangladesh options: bKash, Nagad, Rocket, cards, bank transfer and COD; Saudi Arabia options: mada, STC Pay, Apple Pay, cards, PayPal and COD; other regions show available common card/wallet choices.
-- Initial database schema for products, customer profiles, saved addresses, orders, order items, payment attempts, wishlist and inventory movements.
+- Dedicated Supabase project with the core commerce schema, row-level security, and 12 seeded editorial product listings.
+- Storefront reads active catalog records from Supabase using a public publishable key and the public-products RLS policy; local demo data is a fallback only.
 - RLS policies prevent browser clients from directly creating or editing orders, payments, or inventory.
 
 ## Payment integration status
@@ -31,10 +32,10 @@ Use a hosting secret manager; add only providers you onboard:
 - Currency conversion in the front-end is an indicative display only, not a live FX feed. Never use it to calculate a charge.
 - Store catalogue prices in BDT and calculate the payable amount on the server with a trusted exchange-rate source or provider-specific settlement logic. Persist currency, rate, shipping, tax and total snapshots on each order.
 - Configure country-specific shipping zones, delivery estimates, returns, import duties/VAT and taxes before international launch. Do not promise free shipping worldwide by default.
-- Checkout is still a preview: it does not persist orders, charge payment methods or send confirmation emails.
+- The catalog is connected, but checkout is still a preview: it does not persist orders, reserve stock, charge payment methods or send confirmation emails.
 
 ## Database migration
-The initial schema is at supabase/migrations/202610270001_contra_commerce_core.sql. Apply it only to a dedicated store Supabase project after review; do not use an unrelated project's database.
+The initial schema is at `supabase/migrations/202610270001_contra_commerce_core.sql`, with performance tuning in `supabase/migrations/202610270002_contra_commerce_indexes_rls_tuning.sql` and the editorial catalog seed in `supabase/migrations/202610270003_contra_seed_editorial_catalog.sql`. The dedicated project is `ffhxtxntgiecklaosgza` (Singapore). The schema and seed have been applied there.
 
 ## Deployment blocker
 GitHub source is updated, but Vercel returned 403 when attempting to create a new project. Do not connect this repo to or overwrite the unrelated nirob-portfolio project. An authorised Vercel project must be created or selected before production deployment.
