@@ -36,3 +36,7 @@ npm run preview
 The current build uses a demonstration product catalogue and client-side state. Connect a database and API for persistent inventory, customers, orders and reviews; configure authentication; connect a real payment gateway (bKash/Nagad/cards), shipping provider, email/newsletter service, analytics and customer support before taking live orders. Checkout currently previews an order and does not charge or submit a real order.
 
 Product photos use externally hosted Unsplash image URLs. Replace with licensed brand/product photography before commercial launch.
+
+
+## International checkout
+The UI includes country selection for Bangladesh, Saudi Arabia, UAE, US, UK, EU, Canada, Australia, Pakistan and India; regional currency display; and country-specific payment-method options. These options are currently a checkout preview, not live payment processing. See [`docs/INTERNATIONAL_COMMERCE.md`](../docs/INTERNATIONAL_COMMERCE.md) for provider onboarding, secure server-side secrets, FX/tax/shipping requirements and deployment blockers. The schema proposal is in `supabase/migrations/202610270001_contra_commerce_core.sql` and should only be applied to a dedicated store database.
