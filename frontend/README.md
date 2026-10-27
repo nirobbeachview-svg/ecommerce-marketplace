@@ -40,3 +40,7 @@ Product photos use externally hosted Unsplash image URLs. Replace with licensed 
 
 ## International checkout
 The UI includes country selection for Bangladesh, Saudi Arabia, UAE, US, UK, EU, Canada, Australia, Pakistan and India; regional currency display; and country-specific payment-method options. These options are currently a checkout preview, not live payment processing. See [`docs/INTERNATIONAL_COMMERCE.md`](../docs/INTERNATIONAL_COMMERCE.md) for provider onboarding, secure server-side secrets, FX/tax/shipping requirements and deployment blockers. The schema proposal is in `supabase/migrations/202610270001_contra_commerce_core.sql` and should only be applied to a dedicated store database.
+
+
+## Payment and deployment decision plan
+See [`docs/PAYMENT_AND_DEPLOYMENT_PLAN.md`](../docs/PAYMENT_AND_DEPLOYMENT_PLAN.md) for the Bangladesh-first gateway recommendation, Saudi/international rollout, merchant eligibility checks, secure webhook requirements and current Vercel deployment blocker.
