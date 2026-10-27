@@ -1,0 +1,28 @@
+name: CONTRA storefront build check
+on:
+  push:
+    paths:
+      - 'frontend/**'
+      - '.github/workflows/storefront-build.yml'
+  pull_request:
+    paths:
+      - 'frontend/**'
+      - '.github/workflows/storefront-build.yml'
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Install storefront dependencies
+        working-directory: frontend
+        run: npm install --no-audit --no-fund
+      - name: Build storefront
+        working-directory: frontend
+        run: npm run build
